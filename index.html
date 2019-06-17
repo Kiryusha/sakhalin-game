@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sakhalin test game</title>
+    <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+    <div class="page js-game-container">
+        <div class="video-container">
+            <video class="video" autoplay loop muted>
+                <source src="./video.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="indexes">
+            <div class="indexes__group">
+                <div class="index _0">
+                    <div class="index__title">
+                        ННД
+                    </div>
+                    <div class="index__value js-index-0">0</div>
+                </div>
+                <div class="index _1">
+                    <div class="index__title">
+                        RPM
+                    </div>
+                    <div class="index__value js-index-1">0</div>
+                </div>
+            </div>
+            <div class="indexes__group">
+                <div class="index _2">
+                    <div class="index__title">
+                        МСП
+                    </div>
+                    <div class="index__value js-index-2">0</div>
+                </div>
+                <div class="index _3">
+                    <div class="index__title">
+                        ВСП
+                    </div>
+                    <div class="index__value js-index-3">0</div>
+                </div>
+            </div>
+        </div>
+        <div class="dashboard">
+            <p>
+                Время <span class="time js-time">0</span> сек
+            </p>
+            <p>
+                Цель достигнуть 5000 м.
+            </p>
+            <p>
+                Полная глубина бурения (м):
+            </p>
+            <p>
+                <span class="meters js-meters">0</span>
+            </p>
+        </div>
+    </div>
+    <script type="text/javascript" src="./index.js"></script>
+</body>
+</html>
