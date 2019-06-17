@@ -126,8 +126,19 @@ p:last-child {
     color: red;
 }
 
-.meters {
+.depth {
     font-size: 50px;
     font-weight: bold;
-    color: gold;
+}
+
+.depth._finish {
+    color: limegreen;
+}
+
+.depth._almost {
+    color: yellow;
+}
+
+.depth._failed {
+    color: red;
 }
