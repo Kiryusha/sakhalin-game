@@ -19,6 +19,7 @@ function Level(opt) {
     this.DOM = {
         currentTime: this.container.querySelector('.js-time'),
         depth: this.container.querySelector('.js-depth'),
+        index: this.container.querySelectorAll('.js-index'),
     };
 
     this.runCurrentTimer = function() {
@@ -59,16 +60,50 @@ function Level(opt) {
         }, 100);
     }
 
+    this.runIndexesTimer = function() {
+        self.DOM.index.forEach(function(index) {
+            var currentValue = 0;
+            var absoluteMax = 100;
+            var currentMax = Math.floor(Math.random() * (absoluteMax - (absoluteMax / 2)) + (absoluteMax / 2));
+            var endTime = Math.floor(Math.random() * 2 + 2);
+            var trigger = false;
+
+            var indexTimer = setInterval(function () {
+                var percentage = Math.floor((currentValue * 100) / absoluteMax);
+                var step = (currentMax / (self.levelTime / endTime)) * 100;
+
+                if (currentValue >= currentMax) {
+                    if (currentValue > 0) {
+                        currentValue -= step;
+                    }
+                    trigger = true;
+                    console.log(percentage);
+                } else if (currentValue < 2 && trigger) {
+                    currentValue = 0;
+                    clearInterval(indexTimer);
+                } else if (currentValue < currentMax) {
+                    if (trigger) {
+                        currentValue -= step;
+                    } else {
+                        currentValue += step;
+                    }
+                }
+                index.innerHTML = Math.floor(currentValue);
+            }, 100);
+        });
+    }
+
     this.init = function() {
         self.runCurrentTimer();
         self.runDepthTimer();
+        self.runIndexesTimer();
     }
 }
 
 document.addEventListener('DOMContentLoaded', function() {
     var game = new Level({
         container: document.querySelector('.js-game-container'),
-        levelTime: 60000,
+        levelTime: 10000,
         depth: 1500,
     }).init();
 });
